@@ -40,14 +40,16 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.lblZiraatBankBalance = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblVakifBankBalance = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblişBankasıBalance = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -181,12 +183,22 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.panel3.Controls.Add(this.label3);
+            this.panel3.Controls.Add(this.lblZiraatBankBalance);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Location = new System.Drawing.Point(266, 79);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(253, 163);
             this.panel3.TabIndex = 2;
+            // 
+            // lblZiraatBankBalance
+            // 
+            this.lblZiraatBankBalance.AutoSize = true;
+            this.lblZiraatBankBalance.Font = new System.Drawing.Font("Calibri", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblZiraatBankBalance.Location = new System.Drawing.Point(44, 54);
+            this.lblZiraatBankBalance.Name = "lblZiraatBankBalance";
+            this.lblZiraatBankBalance.Size = new System.Drawing.Size(121, 59);
+            this.lblZiraatBankBalance.TabIndex = 4;
+            this.lblZiraatBankBalance.Text = "0.00 ";
             // 
             // label2
             // 
@@ -198,21 +210,11 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Ziraat Bankası";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Calibri", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(44, 54);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(121, 59);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "0.00 ";
-            // 
             // panel6
             // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.panel6.Controls.Add(this.label4);
-            this.panel6.Controls.Add(this.label5);
+            this.panel6.Controls.Add(this.lblVakifBankBalance);
             this.panel6.Location = new System.Drawing.Point(568, 79);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(253, 163);
@@ -228,35 +230,35 @@
             this.label4.TabIndex = 4;
             this.label4.Text = "0.00 ";
             // 
-            // label5
+            // lblVakifBankBalance
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.Location = new System.Drawing.Point(18, 12);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(87, 23);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Vakıfbank";
+            this.lblVakifBankBalance.AutoSize = true;
+            this.lblVakifBankBalance.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblVakifBankBalance.Location = new System.Drawing.Point(18, 12);
+            this.lblVakifBankBalance.Name = "lblVakifBankBalance";
+            this.lblVakifBankBalance.Size = new System.Drawing.Size(87, 23);
+            this.lblVakifBankBalance.TabIndex = 3;
+            this.lblVakifBankBalance.Text = "Vakıfbank";
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.panel4.Controls.Add(this.label6);
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.panel4.Controls.Add(this.lblişBankasıBalance);
             this.panel4.Controls.Add(this.label7);
             this.panel4.Location = new System.Drawing.Point(880, 79);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(253, 163);
             this.panel4.TabIndex = 5;
             // 
-            // label6
+            // lblişBankasıBalance
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Calibri", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.Location = new System.Drawing.Point(44, 54);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(121, 59);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "0.00 ";
+            this.lblişBankasıBalance.AutoSize = true;
+            this.lblişBankasıBalance.Font = new System.Drawing.Font("Calibri", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblişBankasıBalance.Location = new System.Drawing.Point(44, 54);
+            this.lblişBankasıBalance.Name = "lblişBankasıBalance";
+            this.lblişBankasıBalance.Size = new System.Drawing.Size(121, 59);
+            this.lblişBankasıBalance.TabIndex = 4;
+            this.lblişBankasıBalance.Text = "0.00 ";
             // 
             // label7
             // 
@@ -268,12 +270,22 @@
             this.label7.TabIndex = 3;
             this.label7.Text = "İş Bankası";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.Yellow;
+            this.groupBox1.Location = new System.Drawing.Point(266, 263);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(867, 271);
+            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabStop = false;
+            // 
             // FrmBanks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1212, 754);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel3);
@@ -281,7 +293,9 @@
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmBanks";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmBanks";
+            this.Load += new System.EventHandler(this.FrmBanks_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -309,13 +323,15 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblZiraatBankBalance;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblVakifBankBalance;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblişBankasıBalance;
         private System.Windows.Forms.Label label7;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
